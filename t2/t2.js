@@ -1,3 +1,5 @@
+'use strict';
+
 const restaurants = [
   {
     location: {type: 'Point', coordinates: [25.018456, 60.228982]},
@@ -771,3 +773,55 @@ const restaurants = [
 ];
 
 // your code here
+const target = document.querySelector('tbody');
+const modal = document.querySelector('dialog');
+const info = document.querySelector('#info');
+const closeModal = document.querySelector('#close-modal');
+
+closeModal.addEventListener('click', function () {
+  modal.close();
+});
+
+// Displaying the restaurants in alphabetical order
+restaurants.sort((a, b) => a.name.localeCompare(b.name));
+
+for (const restaurant of restaurants) {
+  if (restaurant) {
+    const name = document.createElement('td');
+    name.innerText = restaurant.name;
+
+    const address = document.createElement('td');
+    address.innerText = restaurant.address;
+
+    const row = document.createElement('tr');
+
+    // highlighting selected restaurant
+
+    row.addEventListener('click', function () {
+      const highlights = document.querySelectorAll('.highlight');
+      for (const highligted of highlights) {
+        highligted.classList.remove('highlight');
+      }
+      row.classList.add('highlight');
+
+      // Displaying restaurant info in modal
+      modal.showModal();
+      const restaurantHTML = `
+          <header>
+            <h3>${restaurant.name}</h3>
+            <p>${restaurant.company}</p>
+          </header>
+          <address>
+            ${restaurant.address}<br>
+            ${restaurant.postalCode} ${restaurant.city}<br>
+            ${restaurant.phone}<br>
+          </address>
+          `;
+      info.innerHTML = '';
+      info.insertAdjacentHTML('beforeend', restaurantHTML);
+    });
+
+    row.append(name, address);
+    target.append(row);
+  }
+}

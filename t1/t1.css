@@ -14,6 +14,7 @@ li {
   display: flex;
   justify-content: flex-end;
   line-height: 3rem;
+  width: 500px;
 }
 
 label {
@@ -23,9 +24,9 @@ label {
 }
 
 li button {
-  width: 2rem;
+  width: 5rem;
   height: 3rem;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(240, 94, 94);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -33,8 +34,8 @@ li button {
 }
 
 li input {
-  position: absolute;
-  margin: 1rem 3rem;
+  position: relative;
+  margin: 1rem 1rem;
   cursor: pointer;
 }
 

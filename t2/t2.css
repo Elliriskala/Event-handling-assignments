@@ -24,3 +24,19 @@ td {
   border-bottom: 1px solid #ccc;
   padding: 0.5em 1em;
 }
+
+.highlight {
+  background-color: rgb(140, 208, 146);
+  font-weight: bold;
+}
+
+dialog > div:first-child {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+dialog > div:first-child button {
+  background: none;
+  border: none;
+}
